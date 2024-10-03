@@ -1,5 +1,5 @@
 {
-    "editor.rulers": [80],
+    "editor.rulers": [100],
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.eslint": "explicit"
@@ -9,25 +9,25 @@
       "ignorePath": ".gitignore"
     },
     "[javascript]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
     "[javascriptreact]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
     "[typescript]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
     "[typescriptreact]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
     "[json]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
     "[jsonc]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
     },
     "[markdown]": {
-      "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
       "editor.wordWrap": "bounded"
     },
     "[html]": {

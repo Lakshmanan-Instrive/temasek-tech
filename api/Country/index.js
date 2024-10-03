@@ -1,38 +1,37 @@
-const {
-    Schema,
-} = require('mongoose');
-const {
-    dbConn,
-} = require('../../system/db/mongo');
+const { Schema } = require('mongoose');
+const { dbConn } = require('../../system/db/mongo');
 
-const countrySchema = new Schema({
+const countrySchema = new Schema(
+  {
     _id: {
-        type: Schema.ObjectId,
-        auto: true,
+      type: Schema.ObjectId,
+      auto: true
     },
     status: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true
     },
     code: {
-        type: String,
-        required: true,
+      type: String,
+      required: true
     },
     name: {
-        type: String,
+      type: String
     },
     createdAt: {
-        type: Date,
+      type: Date
     },
     updatedAt: {
-        type: Date,
+      type: Date
     },
     dial_code: {
-        type: Number,
-    },
-}, {
-    timestamps: true,
-});
+      type: Number
+    }
+  },
+  {
+    timestamps: true
+  }
+);
 
 const Country = dbConn.model('Country', countrySchema, 'countries');
 

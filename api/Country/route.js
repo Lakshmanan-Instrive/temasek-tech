@@ -7,6 +7,10 @@ const c = require('../../system/utils/controller-handler');
 const controller = require('./controller');
 const schema = require('./schema');
 
-router.get('/', celebrate(schema.getAllByParams, schema.options), c(controller.getAllByParams, (req, res, next) => [req.query]));
+router.get(
+  '/',
+  celebrate(schema.getAllByParams, schema.options),
+  c(controller.getAllByParams, (req, res, next) => [req.query])
+);
 
 module.exports = router;

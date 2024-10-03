@@ -1,63 +1,62 @@
-const {
-    Schema,
-} = require('mongoose');
-const {
-    dbConn,
-} = require('../../system/db/mongo');
+const { Schema } = require('mongoose');
+const { dbConn } = require('../../system/db/mongo');
 
-const citySchema = new Schema({
+const citySchema = new Schema(
+  {
     _id: {
-        type: Schema.ObjectId,
-        auto: true,
+      type: Schema.ObjectId,
+      auto: true
     },
     aseanId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Asean',
+      type: Schema.Types.ObjectId,
+      ref: 'Asean'
     },
     type: {
-        type: String,
-        required: true,
+      type: String,
+      required: true
     },
     name: {
-        type: String,
-        default: '',
+      type: String,
+      default: ''
     },
     code: {
-        type: String,
+      type: String
     },
     serial: {
-        type: Number,
+      type: Number
     },
     province: {
-        type: String,
+      type: String
     },
     provinceId: {
-        type: Schema.Types.ObjectId,
-        ref: 'Province',
+      type: Schema.Types.ObjectId,
+      ref: 'Province'
     },
     lat: {
-        type: String,
+      type: String
     },
     lng: {
-        type: String,
+      type: String
     },
     status: {
-        type: Number,
-        required: true,
-        default: 1,
+      type: Number,
+      required: true,
+      default: 1
     },
     'createdAt/$date': {
-        type: String,
+      type: String
     },
     'updatedAt/$date': {
-        type: String,
+      type: String
     },
     updatedAt: {
-        type: Date,
-    },
-}, {
-    timestamps: true,
-});
+      type: Date
+    }
+  },
+  {
+    timestamps: true
+  }
+);
 
 const City = dbConn.model('City', citySchema, 'cities');
 

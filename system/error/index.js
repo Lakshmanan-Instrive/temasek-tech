@@ -24,14 +24,14 @@
  */
 
 module.exports = class bverror {
-    // eslint-disable-next-line camelcase
-    static process_error(e) {
-        if (e.response) {
-            return e.response.data;
-        }
-        if (e.request) {
-            return e.request;
-        }
-        return e.message;
+  // eslint-disable-next-line camelcase
+  static process_error(e) {
+    if (e.response) {
+      return e.response.data;
     }
+    if (e.request) {
+      return e.request;
+    }
+    return e.message;
+  }
 };

@@ -1,33 +1,36 @@
-const {
-    Schema,
-} = require('mongoose');
-const {
-    dbConn,
-} = require('../../system/db/mongo');
+const { Schema } = require('mongoose');
+const { dbConn } = require('../../system/db/mongo');
 
-const countryCodeSchema = new Schema({
+const countryCodeSchema = new Schema(
+  {
     _id: {
-        type: Schema.ObjectId,
-        auto: true,
+      type: Schema.ObjectId,
+      auto: true
     },
     status: {
-        type: Number,
-        required: true,
+      type: Number,
+      required: true
     },
     name: {
-        type: String,
-        required: true,
+      type: String,
+      required: true
     },
     createdAt: {
-        type: Date,
+      type: Date
     },
     updatedAt: {
-        type: Date,
-    },
-}, {
-    timestamps: true,
-});
+      type: Date
+    }
+  },
+  {
+    timestamps: true
+  }
+);
 
-const CountryCode = dbConn.model('CountryCode', countryCodeSchema, 'countryCodes');
+const CountryCode = dbConn.model(
+  'CountryCode',
+  countryCodeSchema,
+  'countryCodes'
+);
 
 module.exports = CountryCode;
