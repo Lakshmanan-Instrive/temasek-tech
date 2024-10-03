@@ -1,7 +1,7 @@
 const boom = require('@hapi/boom');
 
 // eslint-disable-next-line consistent-return
-const controllerHandler = (promise, params) => async(req, res, next) => {
+const controllerHandler = (promise, params) => async (req, res, next) => {
     const boundParams = params ? params(req, res, next) : [];
     try {
         const result = await promise(...boundParams);

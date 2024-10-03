@@ -27,9 +27,7 @@ const mongoFormatedDateTime = (dateTime, dateFormat = '%d/%m/%Y', timeZoneEnable
     };
 };
 
-const convertTimestampToFormat = (timestamp, timezone, format) => {
-    return DateTime.fromMillis(timestamp * 1000).setZone(timezone).toFormat(format);
-};
+const convertTimestampToFormat = (timestamp, timezone, format) => DateTime.fromMillis(timestamp * 1000).setZone(timezone).toFormat(format);
 
 module.exports = {
     getCurrentUnixTimestamp,
@@ -38,5 +36,5 @@ module.exports = {
     getEndOfDay,
     formatUnixTimestamp,
     mongoFormatedDateTime,
-    convertTimestampToFormat
+    convertTimestampToFormat,
 };

@@ -29,13 +29,15 @@ class FileUploader {
     static initialize(config) {
         const uploader = new FileUploader(config);
         const multerObj = multer(uploader.multerConfig).single('file');
-        return (req, res) => new Promise((resolve, reject) => multerObj(req, res, (err) => {
-            if (err && err.code && err.code === 'LIMIT_FILE_SIZE') {
-                reject(boom.badRequest(`File size exceeds limit of ${config.maxFileSize / (1024 * 1024)} MB`));
-            } else {
-                reject(err);
-            }
-        }));
+        return (req, res) => new Promise((resolve, reject) => {
+            multerObj(req, res, (err) => {
+                if (err && err.code && err.code === 'LIMIT_FILE_SIZE') {
+                    reject(boom.badRequest(`File size exceeds limit of ${config.maxFileSize / (1024 * 1024)} MB`));
+                } else {
+                    reject(err);
+                }
+            });
+        });
     }
 }
 

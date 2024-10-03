@@ -6,7 +6,6 @@ if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'dev') {
     });
 }
 
-
 // Package imports
 const express = require('express');
 const helmet = require('helmet');
@@ -16,8 +15,7 @@ const bodyParser = require('body-parser');
 const boom = require('@hapi/boom');
 const cors = require('cors');
 const requestIp = require('request-ip');
-const swaggerUi = require('swagger-ui-express');
-
+// const swaggerUi = require('swagger-ui-express');
 
 // Local file imports
 const logError = require('./system/middleware/log-error');
@@ -25,7 +23,6 @@ const errorHandler = require('./system/error/handler');
 const middlewareConfig = require('./system/config/middleware');
 const countryRoutes = require('./api/Country/route');
 const countryCodeRoutes = require('./api/CountryCode/route');
-
 
 // Initialize express app
 const app = express();
@@ -36,7 +33,7 @@ app.use(cors(middlewareConfig.cors));
 app.use(helmet());
 app.use(morgan(middlewareConfig.morganRequestFormat));
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: true,
 }));
 app.use(bodyParser.json());
 app.use(requestIp.mw());
@@ -44,7 +41,7 @@ app.use(requestIp.mw());
 // Public routes
 app.get('/', (req, res) => {
     res.send({
-        message: 'success'
+        message: 'success',
     });
 });
 app.get('/api/health', (req, res) => {
@@ -56,7 +53,7 @@ app.use('/api/country', countryRoutes);
 app.use('/api/country-code', countryCodeRoutes);
 
 // Error handling middleware
-app.use((req, res, next) => {
+app.use(() => {
     throw boom.notFound('Endpoint Not Found');
 });
 app.use(logError);

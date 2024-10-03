@@ -3,12 +3,12 @@ const City = require('./index');
 
 const { ObjectId } = mongoose.Types;
 
-const create = async(params) => {
+const create = async (params) => {
     const newCity = await City.create(params);
     return newCity;
 };
 
-const cityByAsean = async(params) => {
+const cityByAsean = async (params) => {
     const result = await City.aggregate(
         [{
             $match: {
@@ -40,7 +40,7 @@ const cityByAsean = async(params) => {
     return result;
 };
 
-const cityByAseanId = async(params) => {
+const cityByAseanId = async (params) => {
     const result = await City.aggregate(
         [{
             $match: {
@@ -72,7 +72,7 @@ const cityByAseanId = async(params) => {
     return result;
 };
 
-const cityByAseanIds = async(params) => {
+const cityByAseanIds = async (params) => {
     const result = await City.aggregate(
         [{
             $match: {
@@ -104,7 +104,7 @@ const cityByAseanIds = async(params) => {
     return result;
 };
 
-const cityByAseanIdAndType = async(params) => {
+const cityByAseanIdAndType = async (params) => {
     const result = await City.aggregate(
         [{
             $match: {
@@ -139,7 +139,7 @@ const cityByAseanIdAndType = async(params) => {
     return result;
 };
 
-const list = async() => {
+const list = async () => {
     const result = await City.aggregate(
         [{
             $match: {

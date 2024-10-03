@@ -18,15 +18,15 @@ const cors = {
 };
 
 const morganRequestFormat = function (tokens, req, res) {
-    return '[' + [
+    return `[${[
         tokens.method(req, res),
         tokens.url(req, res),
         tokens.status(req, res),
-        tokens['response-time'](req, res)
-    ].join('][') + ']';
+        tokens['response-time'](req, res),
+    ].join('][')}]`;
 };
 
 module.exports = {
-    cors: cors,
-    morganRequestFormat
+    cors,
+    morganRequestFormat,
 };

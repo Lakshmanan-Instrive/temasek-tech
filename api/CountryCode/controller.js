@@ -5,24 +5,24 @@ const utilsChecks = require('../../system/utils/checks');
 const list = async () => {
     const result = await Territory.aggregate(
         [{
-                $match: {
-                    status: {
-                        $eq: 1,
-                    },
+            $match: {
+                status: {
+                    $eq: 1,
                 },
             },
-            {
-                $sort: {
-                    name: 1,
-                },
+        },
+        {
+            $sort: {
+                name: 1,
             },
-            {
-                $project: {
-                    _id: 1,
-                    name: 1,
-                    status: 1,
-                },
+        },
+        {
+            $project: {
+                _id: 1,
+                name: 1,
+                status: 1,
             },
+        },
         ],
     );
     return result;
@@ -41,5 +41,5 @@ const getAllByParams = async () => {
 };
 
 module.exports = {
-    getAllByParams
+    getAllByParams,
 };

@@ -3,7 +3,9 @@ const boom = require('@hapi/boom');
 const service = require('./service');
 const utilsChecks = require('../../system/utils/checks');
 
-const { ObjectId } = mongoose.Types;
+const {
+    ObjectId,
+} = mongoose.Types;
 
 const create = async (params) => {
     const add = await service.create(params);
@@ -29,7 +31,7 @@ const cityByAsean = async (params) => {
     return result;
 };
 
-const cityByAseanId = async(params) => {
+const cityByAseanId = async (params) => {
     const list = await service.cityByAseanId(params);
     if (!utilsChecks.isArray(list) || utilsChecks.isEmptyArray(list)) {
         throw boom.notFound('No City Found');
@@ -41,7 +43,7 @@ const cityByAseanId = async(params) => {
     return result;
 };
 
-const cityByAseanIds = async(params) => {
+const cityByAseanIds = async (params) => {
     params.aseanIds = JSON.parse(params.aseanIds);
     const aseanIdsObjArray = [];
     if (params.aseanIds.length > 0) {
@@ -61,7 +63,7 @@ const cityByAseanIds = async(params) => {
     return result;
 };
 
-const cityByAseanIdAndType = async(params) => {
+const cityByAseanIdAndType = async (params) => {
     const list = await service.cityByAseanIdAndType(params);
     if (!utilsChecks.isArray(list) || utilsChecks.isEmptyArray(list)) {
         throw boom.notFound('No City Found');
@@ -69,11 +71,12 @@ const cityByAseanIdAndType = async(params) => {
     const result = {
         message: 'City Details',
         detail: list,
+
     };
     return result;
 };
 
-const getAllByParams = async() => {
+const getAllByParams = async () => {
     const getList = await service.list();
     if (!utilsChecks.isArray(getList) || utilsChecks.isEmptyArray(getList)) {
         throw boom.notFound('No City Found');

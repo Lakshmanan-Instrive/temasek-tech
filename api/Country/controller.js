@@ -2,7 +2,7 @@ const boom = require('@hapi/boom');
 const Country = require('./index');
 const utilsChecks = require('../../system/utils/checks');
 
-const list = async() => {
+const list = async () => {
     const result = await Country.aggregate(
         [
             {
@@ -31,7 +31,7 @@ const list = async() => {
     return result;
 };
 
-const getAllByParams = async() => {
+const getAllByParams = async () => {
     const getList = await list();
     if (!utilsChecks.isArray(getList) || utilsChecks.isEmptyArray(getList)) {
         throw boom.notFound('No Country Found');
